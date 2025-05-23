@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untukmu yang Bermusik</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #87CEEB;
+      color: white;
+      overflow: hidden;
+    }
+    video.bg {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.4);
+      transition: all 0.5s ease-in-out;
+    }
+    .active {
+      display: flex;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffffffaa;
+      color: #333;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <video class="bg" autoplay muted loop>
+    <source src="Video/elaina-full.mp4" type="video/mp4">
+  </video>
+
+  <audio autoplay loop>
+    <source src="Audio/musik-semangat.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="slide active">
+    <div>
+      <h1>Untukmu yang Bermusik di Langit Biru</h1>
+      <h2>Sebuah semangat dari seseorang yang ingin mengenalmu lebih dalam</h2>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div>
+      <p>Aku belum mengenalmu sepenuhnya...</p>
+      <p>Namun setiap denting musikmu selalu membuatku percaya kamu luar biasa.</p>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div>
+      <p>Terus mainkan nada-nada itu. Di balik tirai panggung, ada seseorang yang selalu mendukungmu.</p>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div>
+      <h2>Langit biru jadi saksi bahwa kamu tak sendiri.</h2>
+      <p>Semangat untuk pentasmu esok hari!</p>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function nextSlide() {
+      slides[slideIndex].classList.remove("active");
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add("active");
+    }
+  </script>
+</body>
+    </html>
